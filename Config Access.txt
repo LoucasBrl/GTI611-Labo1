@@ -1,0 +1,63 @@
+Config Access
+==========SW2=========
+
+enable
+configure terminal
+
+interface FastEthernet0/5
+switchport access vlan 42
+exit
+interface FastEthernet0/6
+switchport access vlan 42
+exit
+interface FastEthernet0/3
+switchport access vlan 40
+exit
+interface FastEthernet0/4
+switchport access vlan 41
+exit
+
+==========SW3==========
+
+enable
+configure terminal
+
+interface FastEthernet0/3
+switchport access vlan 41
+exit
+interface FastEthernet0/4
+switchport access vlan 40
+exit
+interface FastEthernet0/5
+switchport access vlan 42
+exit
+interface FastEthernet0/6
+switchport access vlan 42
+exit
+
+==========SW5==========
+
+enable
+configure terminal
+
+interface FastEthernet0/2
+switchport access vlan 61
+exit
+interface FastEthernet0/3
+switchport access vlan 60
+exit
+
+==========SW6==========
+
+enable
+configure terminal
+
+interface FastEthernet0/2
+switchport access vlan 61
+exit
+interface FastEthernet0/3
+switchport access vlan 60
+exit
+
+
+

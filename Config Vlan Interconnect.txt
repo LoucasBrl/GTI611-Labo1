@@ -1,0 +1,35 @@
+Config Vlan Interconnect
+
+========SP2========
+
+enable
+configure terminal
+
+interface GigabitEthernet 0/1.60
+encapsulation dot1Q 60
+ipv6 address 2001:34A7:CD01:1000::1/52
+exit
+interface GigabitEthernet 0/1.61
+encapsulation dot1Q 61
+ipv6 address 2001:34A7:CD01:2000::1/52
+exit
+
+
+========SP1========
+
+enable
+configure terminal
+
+interface Ethernet 1/2.40
+encapsulation dot1Q 40
+ip address 142.137.146.129 255.255.255.192
+exit
+interface Ethernet 1/2.41
+encapsulation dot1Q 41
+ip address 142.137.146.1 255.255.255.128
+exit
+
+
+
+
+
