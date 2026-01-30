@@ -1,0 +1,47 @@
+===== SP1 - R1 =====
+enable
+configure terminal
+interface tunnel 0
+ipv6 address 2001:abcd:1234:aa::1/64
+tunnel source FastEthernet0/0
+tunnel destination 142.137.146.205
+tunnel mode ipv6ip
+exit
+Ipv6 Unicast-routing
+Ipv6 route ::/0 2001:abcd:1234:aa::2
+
+===== R1 - SP1 =====
+enable
+configure terminal
+interface tunnel 0
+ipv6 address 2001:abcd:1234:aa::2/64
+tunnel source Ethernet1/0
+tunnel destination 142.137.146.206
+tunnel mode ipv6ip
+exit
+Ipv6 Unicast-routing
+Ipv6 route ::/0 2001:abcd:1234:aa::1
+
+===== SP2 - R2 =====
+enable
+configure terminal
+interface tunnel 0
+ipv6 address 2001:abcd:1234:bb::1/64
+tunnel source GigabitEthernet0/0
+tunnel destination 142.137.148.129
+tunnel mode ipv6ip
+exit
+Ipv6 Unicast-routing
+Ipv6 route ::/0 2001:abcd:1234:bb::2
+
+===== R2 - SP2 =====
+enable
+configure terminal
+interface tunnel 0
+ipv6 address 2001:abcd:1234:bb::2/64
+tunnel source GigabitEthernet0/2
+tunnel destination 142.137.148.130
+tunnel mode ipv6ip
+exit
+Ipv6 Unicast-routing
+Ipv6 route ::/0 2001:abcd:1234:bb::1

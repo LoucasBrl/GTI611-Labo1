@@ -1,0 +1,52 @@
+
+========= SP1 =========
+
+enable
+copy running-config startup-conf 
+
+configure terminal
+ipv6 unicast-routing
+ip route 0.0.0.0 0.0.0.0 142.137.146.205
+ipv6 route 2001:34A7:CD01::/48 2001:abcd:1234:aa::2
+
+========= R1 =========
+
+enable
+copy running-config startup-conf 
+
+configure terminal
+ipv6 unicast-routing
+ipv6 route 2001:34A7:CD01::/48 2001:34A7:CD00:2000::2
+
+ipv6 route 2001:34A7:CD00::/48 2001:abcd:1234:aa::1
+
+ip route 142.137.144.0 255.255.254.0 142.137.146.206
+ip route 142.137.148.0 255.255.254.0 142.137.146.202
+
+========= SP2 =========
+
+enable
+copy running-config startup-conf 
+
+configure terminal
+ipv6 unicast-routing
+ip route 0.0.0.0 0.0.0.0 142.137.148.129
+ipv6 route 2001:34A7:CD00::/48 2001:abcd:1234:bb::2
+ipv6 route 2001:34A7:CD01::/48 2001:abcd:1234:bb::2
+
+
+========= R2 =========
+
+enable
+copy running-config startup-conf 
+
+configure terminal
+ipv6 unicast-routing
+ipv6 route 2001:34A7:CD01:1000::/52 2001:abcd:1234:bb::1
+ipv6 route 2001:34A7:CD01:2000::/52 2001:abcd:1234:bb::1
+ipv6 route 2001:34A7:CD00::/48 2001:34A7:CD00:2000::1
+ip route 142.137.144.0 255.255.254.0 142.137.146.201
+ip route 142.137.148.0 255.255.254.0 142.137.148.130
+
+
+

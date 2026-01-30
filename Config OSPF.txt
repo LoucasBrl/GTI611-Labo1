@@ -1,0 +1,39 @@
+
+======== R1 =========
+enable
+configure terminal
+router ospf 1
+network 142.137.144.0 0.0.1.255 area 0
+network 142.137.146.204 0.0.0.3 area 0
+network 142.137.146.200 0.0.0.3 area 0
+passive-interface FastEthernet0/0
+
+
+======== SP1 =========
+enable
+configure terminal
+router ospf 1
+network 142.137.146.128 0.0.0.63 area 0
+network 142.137.146.0 0.0.0.127 area 0
+network 142.137.146.192 0.0.0.7 area 0
+passive-interface FastEthernet0/1
+passive-interface Ethernet1/0
+passive-interface Ethernet1/2
+
+
+======== R2 =========
+enable
+configure terminal
+router ospf 1
+network 142.137.146.200 0.0.0.3 area 0
+network 142.137.148.128 0.0.0.3 area 0
+passive-interface GigabitEthernet0/0
+
+======== SP2 =========
+enable
+configure terminal
+router ospf 1
+network 142.137.148.128 0.0.0.3 area 0
+network 142.137.148.0 0.0.0.127 area 0
+passive-interface GigabitEthernet0/1
+passive-interface GigabitEthernet0/2

@@ -1,0 +1,41 @@
+======== R1 =========
+enable
+configure terminal
+Router BGP 100
+Neighbor 204.15.30.146 remote-as 200
+Neighbor 204.15.30.129 remote-as 300
+network 204.15.29.128 mask 255.255.255.128
+
+======== R2 =========
+enable
+configure terminal
+Router BGP 200
+Neighbor 204.15.30.145 remote-as 100
+Neighbor 204.15.30.142 remote-as 400
+network 204.15.29.0 mask 255.255.255.128
+
+======== R4 =========
+enable
+configure terminal
+Router BGP 400
+Neighbor 204.15.30.141 remote-as 200
+Neighbor 204.15.30.138 remote-as 500
+network 204.15.30.64 mask 255.255.255.192
+
+======== R5 =========
+enable
+configure terminal
+Router BGP 500
+Neighbor 204.15.30.137 remote-as 400
+Neighbor 204.15.30.134 remote-as 300
+network 204.15.28.0 mask 255.255.255.0
+
+======== R3 =========
+enable
+configure terminal
+Router BGP 300
+Neighbor 204.15.30.130 remote-as 100
+Neighbor 204.15.30.133 remote-as 500
+network 204.15.30.0 mask 255.255.255.192
+
+
